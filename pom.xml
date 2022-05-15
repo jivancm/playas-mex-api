@@ -11,7 +11,7 @@
 	<groupId>com.playas-mex</groupId>
 	<artifactId>hackOcean</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>hackOcean</name>
 	<description>Proyecto para el Hackathon de LaunchX</description>
 	<properties>
