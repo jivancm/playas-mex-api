@@ -20,7 +20,7 @@ public class ClasificacionModel {
     @Column(name = "fecha_actualizada", nullable = false)
     private LocalDate fechaActualizada;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_playa", nullable = false)
     private PlayaModel idPlaya;
 

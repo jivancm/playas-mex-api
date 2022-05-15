@@ -1,7 +1,7 @@
 package com.playasmex.hackOcean.models;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.Instant;
 
 @Entity
 @Table(name = "reporte")
@@ -18,12 +18,12 @@ public class ReporteModel {
     private String descripción;
 
     @Column(name = "fecha_hora", nullable = false)
-    private LocalDate fechaHora;
+    private Instant fechaHora;
 
     @Column(name = "foto")
     private String foto;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_playa", nullable = false)
     private PlayaModel idPlaya;
 
@@ -57,11 +57,11 @@ public class ReporteModel {
         this.descripción = descripción;
     }
 
-    public LocalDate getFechaHora() {
+    public Instant getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(LocalDate fechaHora) {
+    public void setFechaHora(Instant fechaHora) {
         this.fechaHora = fechaHora;
     }
 
