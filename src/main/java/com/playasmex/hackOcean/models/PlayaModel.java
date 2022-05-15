@@ -10,8 +10,8 @@ public class PlayaModel {
     @Column(name = "id_playa", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_municipio", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_municipio")
     private MunicipioModel idMunicipio;
 
     @Column(name = "nombre_playa", nullable = false)

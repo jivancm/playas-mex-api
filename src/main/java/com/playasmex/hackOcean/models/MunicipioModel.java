@@ -3,24 +3,42 @@ package com.playasmex.hackOcean.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="municipio")
+@Table(name = "municipio")
 public class MunicipioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_municipio", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_estado", nullable = false)
-    private EstadoModel idEstado;
-    private String nombre;
+    @Column(name = "nombre_municipio", nullable = false)
+    private String nombreMunicipio;
 
-    public Integer getId(){
-        return this.id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_estado")
+    private EstadoModel idEstado;
+
+    public Integer getId() {
+        return id;
     }
 
-    public String getNombre(){
-        return this.nombre;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombreMunicipio() {
+        return nombreMunicipio;
+    }
+
+    public void setNombreMunicipio(String nombreMunicipio) {
+        this.nombreMunicipio = nombreMunicipio;
+    }
+
+    public EstadoModel getIdEstado() {
+        return idEstado;
+    }
+
+    public void setIdEstado(EstadoModel idEstado) {
+        this.idEstado = idEstado;
     }
 
 }
