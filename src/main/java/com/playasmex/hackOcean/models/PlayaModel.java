@@ -1,5 +1,7 @@
 package com.playasmex.hackOcean.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class PlayaModel {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
+    @JsonIgnore
     private MunicipioModel idMunicipio;
 
     @Column(name = "nombre_playa", nullable = false)
