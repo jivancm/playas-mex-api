@@ -1,5 +1,9 @@
 package com.playasmex.hackOcean.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.playasmex.hackOcean.repositories.PlayaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -23,8 +27,9 @@ public class ReporteModel {
     @Column(name = "foto")
     private String foto;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_playa", nullable = false)
+    @JsonBackReference
     private PlayaModel idPlaya;
 
     @Column(name = "nickname")

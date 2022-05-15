@@ -1,5 +1,7 @@
 package com.playasmex.hackOcean.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -20,8 +22,9 @@ public class ClasificacionModel {
     @Column(name = "fecha_actualizada", nullable = false)
     private LocalDate fechaActualizada;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_playa", nullable = false)
+    @JsonBackReference
     private PlayaModel idPlaya;
 
     public Integer getId() {

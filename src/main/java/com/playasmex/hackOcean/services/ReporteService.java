@@ -1,6 +1,7 @@
 package com.playasmex.hackOcean.services;
 
 import com.playasmex.hackOcean.models.ReporteModel;
+import com.playasmex.hackOcean.repositories.PlayaRepository;
 import com.playasmex.hackOcean.repositories.ReporteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,9 @@ import java.util.ArrayList;
 public class ReporteService {
     @Autowired
     ReporteRepository reporteRepository;
+
+    @Autowired
+    PlayaRepository playaRepository;
 
     public ArrayList<ReporteModel> getReportes(){
         return (ArrayList<ReporteModel>) reporteRepository.findAll();

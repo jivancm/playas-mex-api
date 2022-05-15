@@ -1,8 +1,10 @@
 package com.playasmex.hackOcean.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "municipio")
@@ -15,8 +17,8 @@ public class MunicipioModel {
     @Column(name = "nombre_municipio", nullable = false)
     private String nombreMunicipio;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
     @JoinColumn(name = "id_estado")
     private EstadoModel idEstado;
 
